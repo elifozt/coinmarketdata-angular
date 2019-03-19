@@ -1,14 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MessagesComponent } from './messages/messages.component';
+import { CoinPricesComponent } from './coin-prices/coin-prices.component';
+import { CoinPriceDetailComponent } from './coin-price-detail/coin-price-detail.component';
+import { MatTableModule, MatCardModule } from '@angular/material';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessagesComponent,
+    CoinPricesComponent,
+    CoinPriceDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatTableModule,
+    MatCardModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

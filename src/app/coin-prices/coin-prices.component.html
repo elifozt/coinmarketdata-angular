@@ -1,0 +1,24 @@
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Index Column -->
+  <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index;">{{i}}</mat-cell>
+    </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Coin Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <a routerLink="/price/{{element.symbol}}">{{element.symbol}} </a></mat-cell>
+  </ng-container>
+  <!-- LastPrice Column -->
+  <ng-container matColumnDef="lastPrice">
+    <mat-header-cell *matHeaderCellDef> Last Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastPrice}} </mat-cell>
+  </ng-container>
+   <!-- Volume Column -->
+   <ng-container matColumnDef="volume">
+    <mat-header-cell *matHeaderCellDef> Volume </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.volume}} </mat-cell>
+  </ng-container> 
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
