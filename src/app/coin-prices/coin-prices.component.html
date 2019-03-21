@@ -12,12 +12,12 @@
   <!-- LastPrice Column -->
   <ng-container matColumnDef="lastPrice">
     <mat-header-cell *matHeaderCellDef> Last Price </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.lastPrice}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastPrice | currency}} </mat-cell>
   </ng-container>
    <!-- Volume Column -->
    <ng-container matColumnDef="volume">
     <mat-header-cell *matHeaderCellDef> Volume </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.volume}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.volume | currency }} </mat-cell>
   </ng-container> 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

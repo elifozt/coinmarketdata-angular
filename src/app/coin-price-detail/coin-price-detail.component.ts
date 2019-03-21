@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PriceService} from '../price.service';
+import { PriceService} from '../../service/price.service';
 import { CoinPrice } from '../CoinPrice';
 import { GoogleChartComponent } from 'angular-google-charts';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { ViewChild } from '@angular/core';
 import { Globals } from '../../globals';
 import { MatTableDataSource } from '@angular/material';
+// import '../../../node_modules/cryptocurrency-icons';
 
 @Component({
   selector: 'app-coin-price-detail',
