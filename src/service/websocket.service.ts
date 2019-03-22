@@ -3,6 +3,9 @@ import { Observable , Observer, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Implementation of web socket listener
+ */
 export class WebsocketService {
 
   constructor() {}

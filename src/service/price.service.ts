@@ -9,7 +9,7 @@ import { WebsocketService } from './websocket.service';
 import { Subject} from 'rxjs';
 import 'rxjs/add/operator/map';
 
-// url from the environment.ts file
+/**  url from the environment.ts file */
 const SERVER_URL = environment.server_url;
 const WS_SERVER_URL = 'ws://localhost:8080/websocket';
 @Injectable({
@@ -22,8 +22,9 @@ export class PriceService {
 
   constructor(private http: HttpClient, private messageService: MessageService, private websocketService: WebsocketService) {
     this.connectWebSocket();
-    console.log('message:' + this.messages);
+    // console.log('message:' + this.messages);
   }
+  /** Update coin prices by listenin from websocket */
   public connectWebSocket() {
     this.messages = <Subject<CoinPrice[]>>this.websocketService
         .connect(WS_SERVER_URL)
@@ -31,6 +32,7 @@ export class PriceService {
           return JSON.parse(response.data);
         });
 }
+  /** GET the list of all coin prices-las 300 values */
   getCoinPrices(): Observable<CoinPrice[]> {
       return this.http.get<CoinPrice[]>(SERVER_URL + '/prices')
       .pipe(
@@ -40,7 +42,6 @@ export class PriceService {
         catchError(this.handleError('getCoinPrices', []))
       );
   }
-
 
   /** GET price by coin symbolWill 404 if id not found */
   getCoinPrice(symbol: string): Observable<CoinPrice[]> {
@@ -54,7 +55,6 @@ export class PriceService {
       }),
       catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
     );
-    // console.log('returning:' + JSON.stringify(this.cp));
     return this.cp;
   }
 

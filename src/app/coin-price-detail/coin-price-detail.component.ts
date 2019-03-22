@@ -15,7 +15,6 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./coin-price-detail.component.css']
 })
 export class CoinPriceDetailComponent implements OnInit {
-  // @Input() coin: CoinPrice;
   @ViewChild('chart')
   chart: GoogleChartComponent;
 
@@ -35,11 +34,13 @@ export class CoinPriceDetailComponent implements OnInit {
     columnNames = ['Time', 'Price'];
     options = {
        hAxis: {
-          title: 'Time'
+          title: 'Time',
+          textPosition: 'none'
        },
        vAxis: {
           title: 'Price'
        },
+       legend: 'none'
     };
     width = 1000;
     height = 500;

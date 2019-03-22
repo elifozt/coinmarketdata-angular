@@ -14,10 +14,16 @@ export class CoinPricesComponent implements OnInit {
   cp: Array<CoinPrice> = new Array<CoinPrice>();
   dataSource = new MatTableDataSource<CoinPrice>();
   displayedColumns: string[] = ['index', 'symbol', 'lastPrice', 'volume'];
+  map = new Map<string, object>();
   constructor(private priceService: PriceService, private globals: Globals) {
     priceService.messages.subscribe(coinprices => {
-      // console.log('Response from websocket: ' + JSON.stringify(coinprices));
-      this.dataSource.data = coinprices;
+      if (coinprices != null && coinprices.length !== 0) {
+        coinprices.forEach(coin => {
+          coin.addTime = this.globals.getDate(coin.addTime);
+          this.map.set(coin.symbol, coin);
+        });
+      }
+      this.dataSource.data = <CoinPrice[]>Array.from(this.map.values()).sort(this.globals.dynamicSort('-lastPrice'));
     });
   }
   ngOnInit() {
@@ -27,13 +33,13 @@ export class CoinPricesComponent implements OnInit {
 
     this.priceService.getCoinPrices()
     .subscribe(coinprices => {
-      console.log('Response from http: ' + JSON.stringify(coinprices));
       if (coinprices != null && coinprices.length !== 0) {
         coinprices.forEach(coin => {
           coin.addTime = this.globals.getDate(coin.addTime);
+          this.map.set(coin.symbol, coin);
         });
       }
-      this.dataSource.data = coinprices;
+      this.dataSource.data = <CoinPrice[]>Array.from(this.map.values()).sort(this.globals.dynamicSort('-lastPrice'));
     });
 
   }
