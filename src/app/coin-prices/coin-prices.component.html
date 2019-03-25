@@ -9,7 +9,7 @@
         </ng-container>
        <!-- Name Column -->
        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Coin Symbol </th>
+          <th mat-header-cell *matHeaderCellDef> Coin Name </th>
           <td mat-cell *matCellDef="let element"> <a routerLink="/price/{{element.symbol}}">
             <img src="assets/img/{{element.symbol}}.png" width="20" height="20">
             {{element.name}} 
