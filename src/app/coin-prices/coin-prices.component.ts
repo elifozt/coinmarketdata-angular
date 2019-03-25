@@ -31,7 +31,7 @@ import { trigger, state, style, transition, animate, query } from '@angular/anim
 export class CoinPricesComponent implements OnInit, OnDestroy {
   cp: Array<CoinPrice> = new Array<CoinPrice>();
   dataSource = new MatTableDataSource<CoinPrice>();
-  displayedColumns: string[] = ['index', 'symbol', 'lastPrice', 'volume'];
+  displayedColumns: string[] = ['index', 'name', 'symbol', 'lastPrice', 'volume'];
   map = new Map<string, CoinPrice>();
   constructor(private priceService: PriceService, private globals: Globals) {
     priceService.messages.subscribe(coinprices => {
@@ -39,6 +39,7 @@ export class CoinPricesComponent implements OnInit, OnDestroy {
         console.log('New prices updated');
         coinprices.forEach(coin => {
           coin.addTime = this.globals.getDate(coin.addTime);
+          coin.name = globals.coinmap.get(coin.symbol);
           const oldCoin = this.map.get(coin.symbol);
           // coin.increased = false;
           // coin.decreased = false;
@@ -72,6 +73,7 @@ export class CoinPricesComponent implements OnInit, OnDestroy {
         coinprices.forEach(coin => {
           coin.addTime = this.globals.getDate(coin.addTime);
           coin.change = 'unchanged';
+          coin.name = this.globals.coinmap.get(coin.symbol);
           this.map.set(coin.symbol, coin);
         });
       }
