@@ -1,18 +1,18 @@
 
-  table {
-    width: 90%;
-    align-self: right;
-    box-align: center;
-  }
-  
-  tr.example-element-row:hover {
-    background: #f5f5f5;
-  }
-  
-  tr.example-element-row:active {
-    background: #efefef;
+html body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
 }
+  table{
+    width: 75%;
+    background-color: #2B3441 !important;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
 
-.example-margin {
-  margin: 0 10px;
+  }
+ 
+
+.gridBlack {
+  background-color: #2B3441 !important;
+  color: rgba(255, 255, 255, 0.8);
 }

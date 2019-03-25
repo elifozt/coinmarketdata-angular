@@ -33,19 +33,33 @@ export class CoinPriceDetailComponent implements OnInit {
     type = 'LineChart';
     columnNames = ['Time', 'Price'];
     options = {
+      titleTextStyle: {
+        color: 'purple'
+      },
        hAxis: {
           title: 'Time',
-          textPosition: 'none'
+          textPosition: 'none',
+          titleTextStyle: {
+            color: 'whitesmoke'
+          }
        },
        vAxis: {
-          title: 'Price'
+          title: 'Price',
+          titleTextStyle: {
+            color: 'whitesmoke'
+          },
+          textStyle: {
+            color: 'whitesmoke'
+          }
        },
-       legend: 'none'
+       backgroundColor: '#2b3441',
+       colors: ['purple'],
+      //  is3D: true,
+       legend: 'none',
+       crosshair: { trigger: 'both' }
     };
-    width = 1000;
+    width = 750;
     height = 500;
-
-
   ngOnInit() {
     this.getCoinPriceBySymbol();
   }
@@ -62,8 +76,9 @@ export class CoinPriceDetailComponent implements OnInit {
 
         });
       }
+      this.chartData.reverse();
       this.dataSource.data = coinpricesOfSymbol;
-      this.title = 'Prices of ' + this.symbol;
+      this.title = 'Last 1 hour ' + this.symbol + ' prices';
     });
   }
 }

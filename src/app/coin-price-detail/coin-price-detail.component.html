@@ -1,5 +1,7 @@
-
-<div *ngIf="chartData" align="center">
+<mat-grid-list cols="2" class="gridBlack">
+    <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile class="gridBlack">
+<div *ngIf="chartData" align="center" >
   <google-chart #chart
     [title]="title"
     [type]="type"
@@ -9,4 +11,7 @@
     [width]="width"
     [height]="height">
 </google-chart>
-</div>
+</div> 
+  </mat-grid-tile>
+
+</mat-grid-list>

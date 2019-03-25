@@ -5,4 +5,6 @@ export class CoinPrice {
     askPrice?: string;
     addTime: string;
     volume: number;
+    change?: string;
+    changeImg?; string;
 }

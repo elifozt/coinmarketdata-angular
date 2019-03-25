@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { CoinPricesComponent } from './coin-prices/coin-prices.component';
 import { CoinPriceDetailComponent } from './coin-price-detail/coin-price-detail.component';
-import { MatTableModule, MatCardModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { GoogleChartsModule } from 'angular-google-charts';
     HttpClientModule,
     MatTableModule,
     MatCardModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
