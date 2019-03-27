@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CoinPrice } from '../app/CoinPrice';
+import { CoinPrice } from '../app/model/CoinPrice';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
@@ -20,9 +20,9 @@ export class PriceService {
   cp: Observable<CoinPrice[]>;
   public messages: Subject<CoinPrice[]>;
 
-  constructor(private http: HttpClient, private messageService: MessageService, private websocketService: WebsocketService) {
+  constructor(private http: HttpClient, private messageService: MessageService,
+              private websocketService: WebsocketService) {
     this.connectWebSocket();
-    // console.log('message:' + this.messages);
   }
   /** Update coin prices by listenin from websocket */
   public connectWebSocket() {

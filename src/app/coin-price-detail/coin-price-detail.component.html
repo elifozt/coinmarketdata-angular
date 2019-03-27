@@ -1,17 +1,16 @@
-<mat-grid-list cols="2" class="gridBlack">
-    <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile class="gridBlack">
-<div *ngIf="chartData" align="center" >
-  <google-chart #chart
-    [title]="title"
-    [type]="type"
-    [data]="chartData"
-    [columnNames]="columnNames"
-    [options]="options"
-    [width]="width"
-    [height]="height">
-</google-chart>
-</div> 
-  </mat-grid-tile>
-
-</mat-grid-list>
+<div class="flex-container">
+  <div class="left"> <app-coin-news-selected [symbol]="symbol"></app-coin-news-selected></div>
+  <div class="right">
+      <div *ngIf="chartData right" align="center">
+        <google-chart #chart
+          [title]="title"
+          [type]="type"
+          [data]="chartData"
+          [columnNames]="columnNames"
+          [options]="options"
+          [width]="width"
+          [height]="height">
+      </google-chart>
+    </div> 
+  </div>
+</div>

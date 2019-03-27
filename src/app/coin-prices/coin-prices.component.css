@@ -3,16 +3,30 @@ html body {
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
-  table{
-    width: 75%;
-    background-color: #2B3441 !important;
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-
+#prices{
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  border: #2B3441 solid
   }
- 
-
-.gridBlack {
-  background-color: #2B3441 !important;
-  color: rgba(255, 255, 255, 0.8);
+#prices th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#2B3441;
+  color:  #fcc118;
+}
+.flex-container {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+}
+.left {
+  flex: 60%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.right {
+  flex: 40%;
+  background-color: #f1f1f1;
 }

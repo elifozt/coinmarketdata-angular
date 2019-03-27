@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Coin Market Data';
+  subtitle = 'Read Top Coin News and See Last Coin Prices';
 }

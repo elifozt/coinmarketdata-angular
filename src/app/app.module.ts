@@ -9,13 +9,17 @@ import { CoinPriceDetailComponent } from './coin-price-detail/coin-price-detail.
 import { MatTableModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoinNewsComponent } from './coin-news/coin-news.component';
+import { CoinNewsSelectedComponent } from './coin-news-selected/coin-news-selected.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     CoinPricesComponent,
-    CoinPriceDetailComponent
+    CoinPriceDetailComponent,
+    CoinNewsComponent,
+    CoinNewsSelectedComponent
   ],
   imports: [
     BrowserModule,

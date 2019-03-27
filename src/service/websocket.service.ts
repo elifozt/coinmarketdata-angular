@@ -31,7 +31,7 @@ export class WebsocketService {
     });
     const observer = {
       next: (data: Object) => {
-        console.log('Got some data : ' + data);
+        // console.log('Got some data : ' + data);
         if (this.ws.readyState === WebSocket.OPEN) {
           this.ws.send(JSON.stringify(data));
         }
@@ -40,7 +40,7 @@ export class WebsocketService {
     return Subject.create(observer, observable);
   }
   public close() {
-    console.log('on closing WS');
+    // console.log('on closing WS');
     this.ws.close();
     this.subject = null;
 }

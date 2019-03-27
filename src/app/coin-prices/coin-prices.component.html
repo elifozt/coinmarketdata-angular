@@ -1,10 +1,10 @@
-<mat-grid-list cols="2" class="gridBlack">
-  <mat-grid-tile class="gridBlack"></mat-grid-tile>
-  <mat-grid-tile>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="flex-container">
+  <div class="left"> <app-coin-news></app-coin-news></div>
+  <div class="right">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="prices">
       <!-- Index Column -->
       <ng-container matColumnDef="index">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
         </ng-container>
        <!-- Name Column -->
@@ -17,7 +17,7 @@
         </ng-container>       
       <!-- Symbol Column -->
       <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Coin Symbol </th>
+        <th mat-header-cell *matHeaderCellDef>Symbol </th>
         <td mat-cell *matCellDef="let element">{{element.symbol}} </td>
       </ng-container>
       <!-- LastPrice Column -->
@@ -35,8 +35,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row" [@rowAnimation]="element.change"></tr>
     </table>
-  </mat-grid-tile>
+  </div>
+</div>
 
-</mat-grid-list>
 
     

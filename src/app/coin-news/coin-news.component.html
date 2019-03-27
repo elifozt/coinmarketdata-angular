@@ -1,0 +1,23 @@
+<table mat-table [dataSource]="dataSource">
+      <!-- Img Column -->
+    <ng-container matColumnDef="thumbnail">
+      <td mat-cell *matCellDef="let element">
+        <img src="{{element.thumbnail}}" class="image"> </td>
+    </ng-container>
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <td mat-cell *matCellDef="let element">
+        <a href="{{element.url}}">
+        <span class="source">{{element.sourceName}}</span> <span class="time"> {{element.publishAt}}  </span>
+        <h2>{{element.title}}</h2>
+        {{element.description}}
+      </a>
+        </td>
+    </ng-container>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+</table>
+
+
+
+
+

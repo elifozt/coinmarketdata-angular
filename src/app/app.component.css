@@ -1,4 +1,14 @@
-.dark-theme {
+.title {
     color: rgba(255, 255, 255, 0.8);
     background-color: #2B3441 !important;
+    font-size: 40px;
+    font-style: bolder;
   }
+  .subtitle {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcc118;
+    font-size: 13pt;
+}
