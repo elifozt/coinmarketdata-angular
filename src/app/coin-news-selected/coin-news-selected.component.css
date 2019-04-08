@@ -1,24 +1,33 @@
 table{
     width: 100%;
     background-color: #f1f1f1;
-    font-size: 12px;
+    font-size: 11px;
+    border-spacing: 2px;
   }
-
+  .mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 8px 8px 8px 8px;
+  }
 .image{
-    width: 70px;
+    width: 60px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 .source{
     font-size:11px;
     color: blue;
     margin-top: 10px;
+    padding-top: 10px;
 }
 .time{
     font-size:11px;
     margin-top: 10px;
+    padding-top: 10px;
 }
 a {
     color: inherit;

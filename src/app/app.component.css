@@ -1,6 +1,6 @@
 .title {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #2B3441 !important;
+    color:white;
+    background-color: #03a67b !important;
     font-size: 40px;
     font-style: bolder;
   }
@@ -9,6 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fcc118;
+    background-color: #f1f1f1;
     font-size: 13pt;
 }

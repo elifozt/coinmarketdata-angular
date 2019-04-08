@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 
 /**  url from the environment.ts file */
 const SERVER_URL = environment.server_url;
-const WS_SERVER_URL = 'ws://localhost:8080/websocket';
+const WS_SERVER_URL = environment.ws_url;
 @Injectable({
   providedIn: 'root'
 })

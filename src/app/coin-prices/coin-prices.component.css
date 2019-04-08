@@ -7,14 +7,14 @@ html body {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
-  border: #2B3441 solid
+  /* border: #2B3441 solid */
   }
 #prices th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color:#2B3441;
-  color:  #fcc118;
+  background-color: #f1f1f1;/*#03a67b;;*/
+  color:  black;
 }
 .flex-container {
   display: flex;
@@ -22,11 +22,11 @@ html body {
   margin: 0px;
 }
 .left {
-  flex: 60%;
+  flex: 55%;
   background-color: #f1f1f1;
   padding: 20px;
 }
 .right {
-  flex: 40%;
+  flex: 45%;
   background-color: #f1f1f1;
 }
