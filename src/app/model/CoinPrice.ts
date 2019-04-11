@@ -1,7 +1,7 @@
 export class CoinPrice {
     symbol: string;
     name?: string;
-    lastPrice: number;
+    lastPrice: string;
     bidPrice?: string;
     askPrice?: string;
     addTime: string;

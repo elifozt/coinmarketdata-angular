@@ -32,7 +32,7 @@ export class PriceService {
           return JSON.parse(response.data);
         });
 }
-  /** GET the list of all coin prices-las 300 values */
+  /** GET the list of all coin prices-last 300 values */
   getCoinPrices(): Observable<CoinPrice[]> {
       return this.http.get<CoinPrice[]>(SERVER_URL + '/prices')
       .pipe(
@@ -43,9 +43,9 @@ export class PriceService {
       );
   }
 
-  /** GET price by coin symbolWill 404 if id not found */
-  getCoinPrice(symbol: string): Observable<CoinPrice[]> {
-    const url = `${SERVER_URL}/price/${symbol}`;
+  /** GET live prices by coin symbol */
+  getCoinPriceLive(symbol: string): Observable<CoinPrice[]> {
+    const url = `${SERVER_URL}/priceLive/${symbol}`;
     console.log('url:' + url);
     this.cp = this.http.get<CoinPrice[]>(url)
     .pipe(
@@ -57,21 +57,62 @@ export class PriceService {
     );
     return this.cp;
   }
-    /** GET price by coin symbolWill 404 if id not found */
-    getCoinPriceDaily(symbol: string): Observable<CoinPrice[]> {
-      const url = `${SERVER_URL}/priceDaily/${symbol}`;
-      console.log('url:' + url);
-      this.cp = this.http.get<CoinPrice[]>(url)
-      .pipe(
-        tap(result => {
-          this.log(`fetched coin symbol=${symbol}`);
-          console.log(result);
-        }),
-        catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
-      );
-      return this.cp;
-    }
-
+  /** GET daily prices by coin symbol*/
+  getCoinPriceDaily(symbol: string): Observable<CoinPrice[]> {
+    const url = `${SERVER_URL}/priceDaily/${symbol}`;
+    console.log('url:' + url);
+    this.cp = this.http.get<CoinPrice[]>(url)
+    .pipe(
+      tap(result => {
+        this.log(`fetched coin symbol=${symbol}`);
+        console.log(result);
+      }),
+      catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
+    );
+    return this.cp;
+  }
+  /** GET weekly prices by coin symbol*/
+  getCoinPriceWeekly(symbol: string): Observable<CoinPrice[]> {
+    const url = `${SERVER_URL}/priceWeekly/${symbol}`;
+    console.log('url:' + url);
+    this.cp = this.http.get<CoinPrice[]>(url)
+    .pipe(
+      tap(result => {
+        this.log(`fetched coin symbol=${symbol}`);
+        console.log(result);
+      }),
+      catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
+    );
+    return this.cp;
+  }
+  /** GET monthly prices by coin symbol*/
+  getCoinPriceMonthly(symbol: string): Observable<CoinPrice[]> {
+    const url = `${SERVER_URL}/priceMonthly/${symbol}`;
+    console.log('url:' + url);
+    this.cp = this.http.get<CoinPrice[]>(url)
+    .pipe(
+      tap(result => {
+        this.log(`fetched coin symbol=${symbol}`);
+        console.log(result);
+      }),
+      catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
+    );
+    return this.cp;
+  }
+  /** GET monthly prices by coin symbol*/
+  getCoinPriceYearly(symbol: string): Observable<CoinPrice[]> {
+    const url = `${SERVER_URL}/priceYearly/${symbol}`;
+    console.log('url:' + url);
+    this.cp = this.http.get<CoinPrice[]>(url)
+    .pipe(
+      tap(result => {
+        this.log(`fetched coin symbol=${symbol}`);
+        console.log(result);
+      }),
+      catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
+    );
+    return this.cp;
+  }
   private log(message: string) {
     this.messageService.add(`PriceService: ${message}`);
   }

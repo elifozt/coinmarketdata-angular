@@ -1,7 +1,7 @@
 <div class="flex-container">
   <div class="left"> <app-coin-news-selected [symbol]="symbol"></app-coin-news-selected></div>
   <div class="right">
-      <div *ngIf="chartData right" align="center">
+      <div *ngIf="chartData" align="center">
         <google-chart #chart
           [title]="title"
           [type]="type"
@@ -11,8 +11,11 @@
           [width]="width"
           [height]="height">
       </google-chart>
-      <button (click) = "getLivePrices()">Live</button>
-      <button (click) = "getDailyPrices()">Daily</button>
+      <button (click) = "showLivePrices()">Live</button>
+      <button (click) = "showDailyPrices()">Daily</button>
+      <button (click) = "showWeeklyPrices()">Weekly</button>
+      <button (click) = "showMonthlyPrices()">Monthly</button>
+      <button (click) = "showYearlyPrices()">Yearly</button>
     </div> 
   </div>
 </div>
