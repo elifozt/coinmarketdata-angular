@@ -9,11 +9,11 @@ import { Globals } from '../../globals';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'app-coin-price-detail',
-  templateUrl: './coin-price-detail.component.html',
-  styleUrls: ['./coin-price-detail.component.css']
+  selector: 'app-coin-price-chart',
+  templateUrl: './coin-price-chart.component.html',
+  styleUrls: ['./coin-price-chart.component.css']
 })
-export class CoinPriceDetailComponent implements OnInit {
+export class CoinPriceChartComponent implements OnInit {
   @ViewChild('chart')
   chart: GoogleChartComponent;
   symbol: string;
@@ -58,10 +58,12 @@ export class CoinPriceDetailComponent implements OnInit {
     width = 750;
     height = 500;
   ngOnInit() {
-    this.getCoinPriceBySymbol();
+    this.getCoinPriceLive();
+    // this.getCoinPriceDaily();
   }
-  getCoinPriceBySymbol(): void {
+  getCoinPriceLive(): void {
     this.symbol = this.route.snapshot.paramMap.get('symbol');
+    this.chartData = [];
     // console.log('symbol:' + this.symbol);
     this.priceService.getCoinPrice(this.symbol)
     .subscribe(coinpricesOfSymbol => {
@@ -77,5 +79,31 @@ export class CoinPriceDetailComponent implements OnInit {
       this.dataSource.data = coinpricesOfSymbol;
       this.title = 'Last 1 hour ' + this.symbol + ' prices';
     });
+  }
+
+  getCoinPriceDaily(): void {
+    this.symbol = this.route.snapshot.paramMap.get('symbol');
+    this.chartData = [];
+    // console.log('symbol:' + this.symbol);
+    this.priceService.getCoinPriceDaily(this.symbol)
+    .subscribe(coinpricesOfSymbol => {
+      if (coinpricesOfSymbol != null && coinpricesOfSymbol.length !== 0) {
+        coinpricesOfSymbol.forEach(price => {
+          price.addTime = this.globals.getDate(price.addTime);
+          const newPriceElement = [ price.addTime, price.lastPrice];
+          this.chartData.push(newPriceElement);
+          console.log('new price Element:' + newPriceElement);
+        });
+      }
+      this.chartData.reverse();
+      this.dataSource.data = coinpricesOfSymbol;
+      this.title = 'Last 1 day ' + this.symbol + ' prices';
+    });
+  }
+  getDailyPrices() {
+    this.getCoinPriceDaily();
+  }
+  getLivePrices() {
+    this.getLivePrices();
   }
 }

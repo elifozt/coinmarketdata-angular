@@ -57,6 +57,20 @@ export class PriceService {
     );
     return this.cp;
   }
+    /** GET price by coin symbolWill 404 if id not found */
+    getCoinPriceDaily(symbol: string): Observable<CoinPrice[]> {
+      const url = `${SERVER_URL}/priceDaily/${symbol}`;
+      console.log('url:' + url);
+      this.cp = this.http.get<CoinPrice[]>(url)
+      .pipe(
+        tap(result => {
+          this.log(`fetched coin symbol=${symbol}`);
+          console.log(result);
+        }),
+        catchError(this.handleError(`getCoinPrice id=${symbol}`, []))
+      );
+      return this.cp;
+    }
 
   private log(message: string) {
     this.messageService.add(`PriceService: ${message}`);

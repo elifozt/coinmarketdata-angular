@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { CoinPricesComponent } from './coin-prices/coin-prices.component';
-import { CoinPriceDetailComponent } from './coin-price-detail/coin-price-detail.component';
+import { CoinPriceChartComponent } from './coin-price-chart/coin-price-chart.component';
 import { MatTableModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +17,7 @@ import { CoinNewsSelectedComponent } from './coin-news-selected/coin-news-select
     AppComponent,
     MessagesComponent,
     CoinPricesComponent,
-    CoinPriceDetailComponent,
+    CoinPriceChartComponent,
     CoinNewsComponent,
     CoinNewsSelectedComponent
   ],
