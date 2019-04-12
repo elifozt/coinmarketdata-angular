@@ -1,3 +1,4 @@
+Please see the running applcation by visiting : http://www.elifozturk.me/
 # Marketdata
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.0.
