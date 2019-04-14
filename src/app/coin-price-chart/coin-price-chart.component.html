@@ -11,11 +11,12 @@
           [width]="width"
           [height]="height">
       </google-chart>
-      <button (click) = "showLivePrices()">Live</button>
-      <button (click) = "showDailyPrices()">Daily</button>
-      <button (click) = "showWeeklyPrices()">Weekly</button>
-      <button (click) = "showMonthlyPrices()">Monthly</button>
-      <button (click) = "showYearlyPrices()">Yearly</button>
+      
+      <button mat-flat-button (click) = "showLivePrices()"> Live </button>
+      <a mat-stroked-button (click) = "showDailyPrices()" routerLink="."> Daily </a>
+      <a mat-flat-button (click) = "showWeeklyPrices()" routerLink=".">Weekly</a>
+      <a mat-button (click) = "showMonthlyPrices()" routerLink=".">Monthly</a>
+      <a mat-stroked-button (click) = "showYearlyPrices()" routerLink=".">Yearly</a>
     </div> 
   </div>
 </div>

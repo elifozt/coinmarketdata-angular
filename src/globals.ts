@@ -7,7 +7,7 @@ export class Globals {
     public symbols = ['', 'BTC', 'LTC', 'BCH', 'DOGE', 'ETH', 'ETC', 'XRP', 'XLM', 'XMR',
         'USDC', 'ZEC', 'BTG', 'DASH', 'BSV', 'TRX', 'ADA', 'QTUM', 'DCR', 'EOS', 'BTT']; // 'ZEN', 'BAT', 'DBG'
     public  coinmap = new Map([['BTC', 'Bitcoin'], ['ETH', 'Ethereum'], ['LTC', 'Litecoin'], ['XRP', 'Ripple'],
-                                ['XLM', 'Stellar'], ['TRX', 'TRON'], ['BCHABC', 'Bitcoin Cash ABC'], ['BCHSV', 'Bitcoin SV'],
+                                ['XLM', 'Stellar'], ['TRX', 'TRON'], ['BCHABC', 'Bitcoin Cash'], ['BCHSV', 'Bitcoin SV'],
                             ['ZEC', 'ZCash'], ['BNB', 'Binance Coin'], ['EOS', 'EOS'], ['WAVES', 'Waves']]);
     public  coinmapapi = new Map([['BTC', 'Bitcoin'], ['ETH', 'Ethereum'], ['LTC', 'Litecoin'], ['XRP', 'Ripple'],
                                 ['XLM', 'Stellar'], ['TRX', 'TRON'], ['BCHABC', 'Bitcoin Cash ABC'], ['BCHSV', 'bitcoin-sv'],
