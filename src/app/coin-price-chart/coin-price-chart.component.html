@@ -1,7 +1,7 @@
 <div class="flex-container">
   <div class="left"> <app-coin-news-selected [symbol]="symbol"></app-coin-news-selected></div>
   <div class="right">
-      <div *ngIf="chartData" align="center">
+      <div *ngIf="chartReady" align="center" class="chart">
         <google-chart #chart
           [title]="title"
           [type]="type"
@@ -9,14 +9,16 @@
           [columnNames]="columnNames"
           [options]="options"
           [width]="width"
-          [height]="height">
+          [height]="height"
+          [dynamicResize]="dynamicResize">
       </google-chart>
-      
-      <button mat-flat-button (click) = "showLivePrices()"> Live </button>
-      <a mat-stroked-button (click) = "showDailyPrices()" routerLink="."> Daily </a>
-      <a mat-flat-button (click) = "showWeeklyPrices()" routerLink=".">Weekly</a>
-      <a mat-button (click) = "showMonthlyPrices()" routerLink=".">Monthly</a>
-      <a mat-stroked-button (click) = "showYearlyPrices()" routerLink=".">Yearly</a>
+      <mat-button-toggle-group #group="matButtonToggleGroup">    
+        <mat-button-toggle value="live" (change)="showLivePrices()"> Live </mat-button-toggle>
+        <mat-button-toggle value="daily" (change) = "showDailyPrices()"> Daily </mat-button-toggle>
+        <mat-button-toggle value="weekly" (change) = "showWeeklyPrices()">Weekly</mat-button-toggle>
+        <mat-button-toggle value="monthly" (change) = "showMonthlyPrices()">Monthly</mat-button-toggle>
+        <mat-button-toggle value="yearly" (change) = "showYearlyPrices()">Yearly</mat-button-toggle>
+      </mat-button-toggle-group>
     </div> 
   </div>
 </div>

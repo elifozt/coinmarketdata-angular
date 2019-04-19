@@ -3,19 +3,6 @@ html body {
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
-#prices{
-    width: 100%;
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-    border: #2B3441 solid
-}
-#prices th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color:#2B3441;
-    color:  #fcc118;
-  }
 .flex-container {
   display: flex;
   padding: 0px;
@@ -29,4 +16,12 @@ html body {
 .right {
   flex: 40%;
   background-color: #f1f1f1;
+}
+
+.chart {
+  /* background-color: yellow; */
+  /* bottom: 20px; */
+  /* position: absolute; */
+  /* top: 40px; */
+  width: 100%;
 }

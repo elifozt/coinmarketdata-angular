@@ -6,11 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { CoinPricesComponent } from './coin-prices/coin-prices.component';
 import { CoinPriceChartComponent } from './coin-price-chart/coin-price-chart.component';
-import { MatTableModule, MatCardModule, MatGridListModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatGridListModule, MatButtonModule } from '@angular/material';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoinNewsComponent } from './coin-news/coin-news.component';
 import { CoinNewsSelectedComponent } from './coin-news-selected/coin-news-selected.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { CoinNewsSelectedComponent } from './coin-news-selected/coin-news-select
     MatCardModule,
     GoogleChartsModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

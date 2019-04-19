@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PriceService} from '../../service/price.service';
-import { CoinPrice } from '../model/CoinPrice';
-import { RawChartComponent, GoogleChartComponent } from 'angular-google-charts';
+import { ChartPriceElement } from '../model/CoinPrice';
+import { GoogleChartComponent } from 'angular-google-charts';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { ViewChild } from '@angular/core';
 import { Globals } from '../../globals';
 
@@ -16,8 +15,9 @@ export class CoinPriceChartComponent implements OnInit {
   @ViewChild('chart')
   chart: GoogleChartComponent;
   symbol: string;
+  chartReady = false;
   // key symbol_daily, symbol_weekly ...
-  map = new Map<string, CoinPrice[]>();
+  map = new Map<string, ChartPriceElement[]>();
 
   constructor(
     private priceService: PriceService,
@@ -57,6 +57,7 @@ export class CoinPriceChartComponent implements OnInit {
     height = 500;
 
   ngOnInit() {
+    console.log(this.chartData);
     this.getCoinPriceLive();
   }
   getCoinPriceLive(): void {
@@ -65,6 +66,7 @@ export class CoinPriceChartComponent implements OnInit {
     this.chartData = this.map.get(key);
     this.title = 'Live (last 1 hour) ' + this.symbol + ' prices';
     if ( this.chartData == null || this.chartData.length === 0) {
+      this.chartReady = false;
       this.chartData = [];
       this.priceService.getCoinPriceLive(this.symbol)
       .subscribe(coinpricesOfSymbol => {
@@ -76,7 +78,10 @@ export class CoinPriceChartComponent implements OnInit {
           });
         }
         this.map.set(key, this.chartData);
+        this.chartReady = true;
       });
+    } else {
+      this.chartReady = true;
     }
   }
   getCoinPriceDaily(): void {
@@ -85,6 +90,7 @@ export class CoinPriceChartComponent implements OnInit {
     this.chartData = this.map.get(key);
     this.title = 'Last 1 day ' + this.symbol + ' prices';
     if ( this.chartData == null || this.chartData.length === 0) {
+      this.chartReady = false;
       this.chartData = [];
       this.priceService.getCoinPriceDaily(this.symbol)
       .subscribe(coinpricesOfSymbol => {
@@ -96,7 +102,10 @@ export class CoinPriceChartComponent implements OnInit {
           });
         }
         this.map.set(key, this.chartData.reverse());
+        this.chartReady = true;
       });
+    } else {
+      this.chartReady = true;
     }
   }
   getCoinPriceWeekly(): void {
@@ -105,6 +114,7 @@ export class CoinPriceChartComponent implements OnInit {
     this.chartData = this.map.get(key);
     this.title = 'Last 1 week ' + this.symbol + ' prices';
     if ( this.chartData == null || this.chartData.length === 0) {
+      this.chartReady = false;
       this.chartData = [];
       this.priceService.getCoinPriceWeekly(this.symbol)
       .subscribe(coinpricesOfSymbol => {
@@ -116,7 +126,10 @@ export class CoinPriceChartComponent implements OnInit {
           });
         }
         this.map.set(key, this.chartData.reverse());
+        this.chartReady = true;
       });
+    } else {
+      this.chartReady = true;
     }
   }
   getCoinPriceMonthly(): void {
@@ -125,6 +138,7 @@ export class CoinPriceChartComponent implements OnInit {
     this.chartData = this.map.get(key);
     this.title = 'Last 1 month ' + this.symbol + ' prices';
     if ( this.chartData == null || this.chartData.length === 0) {
+      this.chartReady = false;
       this.chartData = [];
       this.priceService.getCoinPriceMonthly(this.symbol)
       .subscribe(coinpricesOfSymbol => {
@@ -136,7 +150,10 @@ export class CoinPriceChartComponent implements OnInit {
           });
         }
         this.map.set(key, this.chartData.reverse());
+        this.chartReady = true;
       });
+    } else {
+      this.chartReady = true;
     }
   }
   getCoinPriceYearly(): void {
@@ -145,6 +162,7 @@ export class CoinPriceChartComponent implements OnInit {
     this.chartData = this.map.get(key);
     this.title = 'Last 1 year ' + this.symbol + ' prices';
     if ( this.chartData == null || this.chartData.length === 0) {
+      this.chartReady = false;
       this.chartData = [];
       this.priceService.getCoinPriceYearly(this.symbol)
       .subscribe(coinpricesOfSymbol => {
@@ -156,9 +174,13 @@ export class CoinPriceChartComponent implements OnInit {
           });
         }
         this.map.set(key, this.chartData.reverse());
+        this.chartReady = true;
       });
+    } else {
+      this.chartReady = true;
     }
   }
+
   showLivePrices() {
     this.getCoinPriceLive();
   }
