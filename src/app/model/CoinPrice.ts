@@ -9,3 +9,8 @@ export class CoinPrice {
     change?: string;
     changeImg?; string;
 }
+
+export class ChartPriceElement {
+    addTime: string;
+    lastPrice: number;
+}
