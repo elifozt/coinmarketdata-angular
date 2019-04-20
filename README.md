@@ -31,6 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![CoinMarket Data](https://raw.githubusercontent.com/elifozt/coinmarketdata-angular/master/src/assets/img/coinprices.png)
 ![BTC Last Hour Price Chart](https://raw.githubusercontent.com/elifozt/coinmarketdata-angular/master/src/assets/img/BTCChart.png)
 
-![System Design] (https://raw.githubusercontent.com/elifozt/coinmarketdata-angular/master/src/assets/img/marketdatadesign.png)
+![System Design](https://raw.githubusercontent.com/elifozt/coinmarketdata-angular/master/src/assets/img/marketdatadesign.png)
 
 Please see the running applcation by visiting : http://www.elifozturk.me/
